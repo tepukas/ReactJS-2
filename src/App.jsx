@@ -1,30 +1,14 @@
 
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function Home() {
   return (
       <section>
         <h1>Receptų programėlė</h1>
-        <p>Čia galėsite atrasti receptus ir išsaugoti mėgstamiausius.</p>
-        <p>Norėdami naudotis programėle, prisijunkite arba užsiregistruokite.</p>
-      </section>
-  );
-}
-
-function Login() {
-  return (
-      <section>
-        <h1>Prisijungimas</h1>
-        <p>Prisijungimo forma bus pridėta kitame etape.</p>
-      </section>
-  );
-}
-
-function Register() {
-  return (
-      <section>
-        <h1>Registracija</h1>
-        <p>Registracijos forma bus pridėta kitame etape.</p>
+        <p>Čia galėsite atrasti receptus ir išsaugoti mėgstamiausius</p>
+        <p>Norėdami naudotis programėle, prisijunkite arba užsiregistruokite</p>
       </section>
   );
 }

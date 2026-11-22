@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "77ad",
+      "name": "testas",
+      "email": "testauskas@testas.lt",
+      "password": "test123"
+    }
+  ],
+  "favorites": []
+}
