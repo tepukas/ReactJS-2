@@ -1,17 +1,20 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
+    const { login } = useAuth();
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
     const [loading, setLoading] = useState(false);
 
     async function handleSubmit(event) {
         event.preventDefault();
         setError("");
-        setSuccess("");
 
         const normalizedEmail = email.trim().toLowerCase();
 
@@ -42,8 +45,9 @@ export default function Login() {
                 return;
             }
 
-            setSuccess(`Sėkmingai prisijungėte, ${user.name}`);
-            setPassword("");
+            login(user);
+            navigate("/dashboard", { replace: true });
+
         } catch (err) {
             setError(err.message);
         } finally {
@@ -75,7 +79,6 @@ export default function Login() {
                 />
 
                 {error && <p role="alert">{error}</p>}
-                {success && <p role="status">{success}</p>}
 
                 <button type="submit" disabled={loading}>
                     {loading ? "Jungiamasi..." : "Prisijungti"}
